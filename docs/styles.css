@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    :global(body) {
+        background-color: rgb(108, 71, 77);
+        font-family: Montserrat;
+        text-align: center;
+
+        color: white;
+    }
