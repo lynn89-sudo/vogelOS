@@ -1,38 +1,15 @@
-# sv
+# VogelOS
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+VogelOS is a website for tracking your accomplishments, reinforcing good habits, and watching your forest of birds (vogels) grow as you continue along your journey!
 
-## Creating a project
+## What is it built on?
 
-If you're seeing this, you've probably already done this step. Congrats!
+This is build with Svelte and the SvelteKit framework. It's deployed on Github Pages through SvelteKit Adapter
 
-```sh
-# create a new project in the current directory
-npx sv create
+## How is my data stored and tracked?
 
-# create a new project in my-app
-npx sv create my-app
-```
+Currently, all progress is stored through LocalStorage on your web browser. In the future, a save system will eist so users can download their profile and re-upload it.
 
-## Developing
+## How do I use it?
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+For the best experience, use a laptop or computer and chrome; go to lynn89sudo.github.io/vogelOS
