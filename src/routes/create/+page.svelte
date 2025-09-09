@@ -27,7 +27,7 @@
             localStorage.setItem("name", name);
             document.getElementById("innercontent").innerHTML = `
             <h3>Personal Questions</h3>
-                <form onsubmit={ processInput(2) }>
+                <form onsubmit={ function() { processInput(2) } }>
                     <label for="sleepInput">How many hours of sleep on average do you get each night?</label><br>
                     <input type="number" id="sleepInput" min=0 max=24 style="font-family: Montserrat; padding: 10px; border-radius: 20px; cursor: pointer; margin-top: 20px; margin-bottom: 20px;" required>
                     <br><input type=submit style=" padding: 10px; border-radius: 20px; cursor: pointer; font-family: Montserrat; font-weight: 800;" value="Done!">
@@ -165,7 +165,7 @@
     </span>
     <br><br>
     <div id="innercontent">
-        <form onsubmit={ processInput(1) }>
+        <form onsubmit={ function() {processInput(1)} }>
             <input type = "text" id="nameInput" placeholder="What's your name?" aria-placeholder="Input box to enter a name to create the user account" bind:value = { name }> 
             <br><input type="submit" id="submitInput" class:visible={ nameEntered } value="Lets Go!">
         </form>
