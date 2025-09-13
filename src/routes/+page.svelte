@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { base } from "$app/paths";
+    import Navbar from "$lib/navbar.svelte";
 
     onMount(function() {
         if (localStorage.getItem("accountCreated") == null || localStorage.getItem("accountCreated") == "false") {
@@ -21,6 +22,6 @@
         text-align: center;
     }
 </style>
-
+<Navbar />
 <h1>logged in</h1>
 <h3>This page does not work yet</h3>

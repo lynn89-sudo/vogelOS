@@ -1,5 +1,6 @@
 <script>
     import { base } from "$app/paths";
+    import Navbar from "$lib/navbar.svelte";
 
     function deleteAll() {
         for (let i = 0; i < localStorage.length; i++) {
@@ -36,7 +37,7 @@
         font-weight: 800;
     }
 </style>
-
+<Navbar />
 <br>
 <h1 style="font-weight: 800">Data Privacy and Storage</h1>
 <h3 style="font-weight: 500">All data on VogelOS is stored locally, in your browser</h3>

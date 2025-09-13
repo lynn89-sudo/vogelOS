@@ -23,25 +23,12 @@
     });
 
     function processInput(set) {
-        if (set == 1) {
-            localStorage.setItem("name", name);
-            document.getElementById("innercontent").innerHTML = `
-            <h3>Personal Questions</h3>
-                <form onsubmit={ function() { processInput(2) } }>
-                    <label for="sleepInput">How many hours of sleep on average do you get each night?</label><br>
-                    <input type="number" id="sleepInput" min=0 max=24 style="font-family: Montserrat; padding: 10px; border-radius: 20px; cursor: pointer; margin-top: 20px; margin-bottom: 20px;" required>
-                    <br><input type=submit style=" padding: 10px; border-radius: 20px; cursor: pointer; font-family: Montserrat; font-weight: 800;" value="Done!">
-                </form>
-            `;
-        }
-        else {
-
-        }
     }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_circle_down,guardian" />
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    
 
     :global(body) {
        background-color: rgb(86, 62, 88);
@@ -150,7 +137,6 @@
 </style>
 
 <div id="mask" class="on"><h1>Mask</h1></div>
-<Navbar/>
 <br>
 <h1 id="welcome"><span>w</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span></h1>
 <br>
