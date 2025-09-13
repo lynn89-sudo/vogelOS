@@ -2,6 +2,14 @@
     import { base } from "$app/paths";
     import Navbar from "$lib/navbar.svelte";
 
+    import { onMount } from "svelte";
+
+    onMount(function() {
+        if (localStorage.length == 0) {
+            window.location.href = `${base}/create`;
+        }
+    });
+    
     function deleteAll() {
         for (let i = 0; i < localStorage.length; i++) {
             let key = localStorage.key(i);
