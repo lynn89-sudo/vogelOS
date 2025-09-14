@@ -1,1 +1,0 @@
-import"./DsnmJJEf.js";import"./REQY7Erz.js";import{l as s,m as i,n as r}from"./Bs-bpqKD.js";/* empty css        */var o=s('<div id="navbar" class="svelte-gyfpz9"><div id="account" class="svelte-gyfpz9"><h4>Account stats go here</h4></div></div> <div id="spacing" class="svelte-gyfpz9"></div>',1);function n(a){var t=o();r(2),i(a,t)}export{n as N};
