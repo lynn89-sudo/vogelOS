@@ -22,7 +22,10 @@
         }, 3000);
     });
 
-    function processInput(set) {
+    function processInput() {
+        localStorage.setItem("name", document.getElementById("nameInput").value)
+        localStorage.setItem("accountCreated", true);
+        window.location.href = `${base}/`;
     }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_circle_down,guardian" />
@@ -151,7 +154,7 @@
     </span>
     <br><br>
     <div id="innercontent">
-        <form onsubmit={ function() {processInput(1)} }>
+        <form onsubmit={ function() {processInput()} }>
             <input type = "text" id="nameInput" placeholder="What's your name?" aria-placeholder="Input box to enter a name to create the user account" bind:value = { name }> 
             <br><input type="submit" id="submitInput" class:visible={ nameEntered } value="Lets Go!">
         </form>
