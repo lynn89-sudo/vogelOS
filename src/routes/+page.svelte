@@ -6,13 +6,12 @@
     let greetings = [
         "Hoi",
         "Hallo",
-        "Hey there",
+        "Hey",
         "Welcome"
     ]
     let greeting = greetings[Math.floor((Math.random()*4))]
-
     let name = $state("");
-    
+    //console.log(clock.getHours());
 
     onMount(function() {
         if (localStorage.getItem("accountCreated") == null || localStorage.getItem("accountCreated") == "false") {
@@ -22,6 +21,14 @@
             console.log(localStorage.getItem("accountCreated") == false);
         }
     }) 
+
+    onMount(function() {
+        let clock = new Date();
+        let sky = document.getElementById("sky");
+        if (clock.getHours() < 10) {
+            //sky.background = "skies/night.png";
+        }
+    })
 
     onMount(function() {
         name = localStorage.getItem("name");
@@ -37,7 +44,14 @@
         font-family: Montserrat;
         text-align: center;
     }
-
+    #sky {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1000;
+    }
     #title.init {
         opacity: 0;
     }
@@ -47,5 +61,5 @@
     }
 </style>
 <Navbar />
+<div id="sky" alt="Sky Background"></div>
 <h1 id="title" class="init">{ greeting } <span style="color: purple">{ name }</span>!</h1>
-<h3>This page does not work yet</h3>
