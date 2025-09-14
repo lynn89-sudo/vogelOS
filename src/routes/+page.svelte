@@ -25,8 +25,12 @@
     onMount(function() {
         let clock = new Date();
         let sky = document.getElementById("sky");
-        if (clock.getHours() < 10) {
-            //sky.background = "skies/night.png";
+        if (clock.getHours() < 7 || clock.getHours() > 20) {
+            document.body.style = `background-color: black; color: white;`;
+            document.getElementById("nameTitle").style = "color: pink";
+        }
+        else {
+            document.body.style = `background-color: skyblue; color: navy`;
         }
     })
 
@@ -44,22 +48,21 @@
         font-family: Montserrat;
         text-align: center;
     }
-    #sky {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        z-index: -1000;
-    }
     #title.init {
         opacity: 0;
     }
     #title {
         opacity: 1;
         transition: opacity 2s ease-in-out;
+
+        user-select: none;
+        -webkit-user-drag: none;
+        -moz-user-select: none;
+    }
+    #nameTitle {
+        color: purple;
     }
 </style>
 <Navbar />
-<div id="sky" alt="Sky Background"></div>
-<h1 id="title" class="init">{ greeting } <span style="color: purple">{ name }</span>!</h1>
+<div id="sky" style="" alt="Sky Background"></div>
+<h1 id="title" class="init">{ greeting } <span id="nameTitle" style="">{ name }</span>!</h1>

@@ -5,7 +5,8 @@
         right: 0;
         left: 0;
         height: 70px;
-        background-color: rgba(255, 192, 203, 0.679);
+        background-color: rgba(207, 156, 164, 0.679);
+        color: white;
 
         #account {
             display: inline-block;
