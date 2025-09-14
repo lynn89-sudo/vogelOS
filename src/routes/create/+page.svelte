@@ -24,6 +24,7 @@
 
     function processInput() {
         localStorage.setItem("name", document.getElementById("nameInput").value)
+        localStorage.setItem("streak", 0);
         localStorage.setItem("accountCreated", true);
         window.location.href = `${base}/`;
     }

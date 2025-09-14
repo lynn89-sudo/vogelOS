@@ -23,7 +23,7 @@
 
 <div id="navbar">
 <div id="account">
-    <h4>Account stats go here</h4>
+    <h4>[Navbar UI goes here]</h4>
 </div>
 </div>
 <div id="spacing"></div>
