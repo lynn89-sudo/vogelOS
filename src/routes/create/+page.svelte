@@ -29,13 +29,12 @@
         window.location.href = `${base}/`;
     }
 </script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_circle_down,guardian" />
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     
 
     :global(body) {
-       background-color: rgb(86, 62, 88);
+       background-color: rgb(78, 43, 82);
         font-family: Montserrat;
         text-align: center;
 
@@ -92,6 +91,7 @@
     }
     #content.invisible {
         opacity: 0;
+        transition: opacity 0s !important;
     }
 
     #mask {
@@ -138,7 +138,15 @@
         opacity: 1;
     }
 
+    #eefje {
+        position: absolute;
+        bottom: 30px;
+        width: 15%;
+        left: 42.5%;
+        right: 42.5%;
+    }
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_circle_down,emergency_heat,guardian,home,mode_heat" />
 
 <div id="mask" class="on"><h1>Mask</h1></div>
 <br>
@@ -161,3 +169,4 @@
         </form>
     </div>
 </div>
+<img id="eefje" src="vogels/eefje-purpleRing.png" alt="Eefje the Bird"/>

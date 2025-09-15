@@ -92,7 +92,8 @@
         right: 0;
         left: 0;
         height: 150px;
-        background-color: darkcyan
+        background-color: darkcyan;
+        z-index: 999;
     }
 
     #streakDisplay.init {
@@ -105,7 +106,6 @@
         transition: opacity 1s;
     }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=emergency_heat,mode_heat" />
 <Navbar />
 <div id="sky" style="" alt="Sky Background"></div>
 <h1 id="title" class="init">{ greeting } <span id="nameTitle" style="">{ name }</span>!</h1>
