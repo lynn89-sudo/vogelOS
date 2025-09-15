@@ -73,4 +73,9 @@ info
     <h4>VogelOS collects data on your sleep patterns and daily habits, then pushes you to gradually improve your habits.</h4>
     <span class="material-symbols-outlined" style="font-size: 30px;">heart_smile</span>
 </div>
+<div class="faq">
+    <h3>What was this app created for?</h3>
+    <h4>Besides aiming to create a positive social impact and improve daily habits, VogelOS is a submission to the 2025 Congressional App Challenge.</h4>
+    <span class="material-symbols-outlined" style="font-size: 30px;">trophy</span>
+</div>
 

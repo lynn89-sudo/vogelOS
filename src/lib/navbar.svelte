@@ -39,6 +39,8 @@
         top: 0;
         right: 0;
         left: 0;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
         height: 70px;
         background-color: rgba(207, 156, 164, 0.679);
         color: white;
@@ -103,7 +105,7 @@
         height: 70px;
     }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_circle_down,guardian,heart_smile,help,home,info,lock_person,mode_heat,moon_stars,sunny" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_circle_down,guardian,heart_smile,help,home,info,lock_person,mode_heat,moon_stars,sunny,trophy" />
 <div id="navbar" class="init">
     <h1 id="buttons" class="init">
         <button class="material-symbols-outlined" title="Home" onclick = {nav(1)}>home</button>

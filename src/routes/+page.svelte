@@ -108,6 +108,8 @@
         opacity: 1;
         transition: opacity 1s;
     }
+
+
 </style>
 <Navbar />
 <br>
@@ -116,4 +118,8 @@
 <h3 id="greeting" style="margin-top: 0">{ greeting2 }</h3>
 <h1><span id="streakIcon" class="material-symbols-outlined" style="font-size: 110px; margin-bottom: 0; padding-bottom: 0;">moon_stars</span></h1>
 <h1 id="streakDisplay" style="margin-top: 0;" class="init">{ streak } { streakAdd }</h1>
+<div id="tasks">
+    <h3>Next Task</h3>
+    <h5><em>Nothing for now</em></h5>
+</div>
 <div id="forest"><h1>[forest goes here]</h1></div>
