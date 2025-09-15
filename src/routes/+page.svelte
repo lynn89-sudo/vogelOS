@@ -15,6 +15,7 @@
     //console.log(clock.getHours());
 
     let streak = $state(0);
+    let streakAdd = $state("days");
 
     onMount(function() {
         let clock = new Date();
@@ -29,9 +30,6 @@
             }
             else {
                 greeting2 = "Good evening";
-                if (localStorage.getItem("streakSetDate") == "") {
-                    document.getElementById("streakIcon").innerText = "emergency_heat"
-                }
 
                 if (clock.getHours() > 21) {
                     greeting2 = "You should sleep soon";
@@ -59,6 +57,9 @@
 
     onMount(function() {
         streak = localStorage.getItem("streak");
+        if (streak == 1) {
+            streakAdd = "day";
+        }
     })
 </script>
 <style>
@@ -109,9 +110,10 @@
     }
 </style>
 <Navbar />
+<br>
 <div id="sky" style="" alt="Sky Background"></div>
 <h1 id="title" class="init">{ greeting } <span id="nameTitle" style="">{ name }</span>!</h1>
 <h3 id="greeting" style="margin-top: 0">{ greeting2 }</h3>
 <h1><span id="streakIcon" class="material-symbols-outlined" style="font-size: 110px; margin-bottom: 0; padding-bottom: 0;">moon_stars</span></h1>
-<h1 id="streakDisplay" style="margin-top: 0;" class="init">{ streak }</h1>
+<h1 id="streakDisplay" style="margin-top: 0;" class="init">{ streak } { streakAdd }</h1>
 <div id="forest"><h1>[forest goes here]</h1></div>

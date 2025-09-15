@@ -10,6 +10,9 @@
         if (route == 2) {
             window.location.href = `${base}/account`;
         }
+        if (route == 3) {
+            window.location.href = `${base}/help`;
+        }
     }
 
     import { onMount } from "svelte";
@@ -100,11 +103,12 @@
         height: 70px;
     }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_circle_down,emergency_heat,guardian,home,lock_person,mode_heat,moon_stars,sunny" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_circle_down,guardian,heart_smile,help,home,info,lock_person,mode_heat,moon_stars,sunny" />
 <div id="navbar" class="init">
     <h1 id="buttons" class="init">
-        <button class="material-symbols-outlined" onclick = {nav(1)}>home</button>
-        <button class="material-symbols-outlined" onclick = {nav(2)}>guardian</button>
+        <button class="material-symbols-outlined" title="Home" onclick = {nav(1)}>home</button>
+        <button class="material-symbols-outlined" title="Account Manager" onclick = {nav(2)}>guardian</button>
+        <button class="material-symbols-outlined" title="Help and FAQ" onclick = {nav(3)}>help</button>
     </h1>
     <img id="vogel" class="init" src="vogels/{ vogel }.png" alt="Bird"/>
 
