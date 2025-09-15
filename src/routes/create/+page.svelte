@@ -34,15 +34,11 @@
     
 
     :global(body) {
-       background-color: rgb(78, 43, 82);
+       background-color: rgb(63, 47, 65);
         font-family: Montserrat;
         text-align: center;
 
         color: white;
-
-        a {
-            color: white;
-        }
     }
 
     input {
@@ -157,7 +153,7 @@
     guardian
     </span>
     <h3 style="margin-bottom: 0;">Let's make you an account</h3>
-    <h5 style="margin-top: 0;"><em>All data is stored locally on this device. <a href="{ base }/privacy">Learn More</a></em></h5>
+    <h5 style="margin-top: 0;"><em>All data is stored locally on this device. No account information will be uploaded to the internet</em></h5>
     <span class="material-symbols-outlined" id="arrow">
     arrow_circle_down
     </span>

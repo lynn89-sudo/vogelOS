@@ -17,15 +17,6 @@
     let streak = $state(0);
 
     onMount(function() {
-        if (localStorage.getItem("accountCreated") == null || localStorage.getItem("accountCreated") == "false") {
-            window.location.href = `${base}/create`;
-        }
-        else {
-            console.log(localStorage.getItem("accountCreated") == false);
-        }
-    }) 
-
-    onMount(function() {
         let clock = new Date();
         let sky = document.getElementById("sky");
         if (clock.getHours() < 7 || clock.getHours() > 18) {
@@ -38,6 +29,10 @@
             else {
                 greeting2 = "Good evening";
                 document.getElementById("streakIcon").innerText = "emergency_heat"
+
+                if (clock.getHours() > 21) {
+                    greeting2 = "You should sleep soon";
+                }
             }
         }
         else {
@@ -94,6 +89,8 @@
         height: 150px;
         background-color: darkcyan;
         z-index: 999;
+
+        opacity: 0.5;
     }
 
     #streakDisplay.init {
