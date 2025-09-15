@@ -53,7 +53,7 @@
 lock_person
 </span>
 <br><br><br>
-<h4>All your data on this website is stored locally on your browser's storage. Unless you insert userscripts into webpages on this app, your data will remain on the computer. To delete all data for this app from your browser, use the button at the bottom of this page.</h4>
+<h4 style="padding-left: 100px; padding-right: 100px;">All your data on this website is stored locally on your browser's storage. Unless you insert userscripts into webpages on this app, your data will remain on the computer. To delete all data for this app from your browser, use the button at the bottom of this page.</h4>
 <br><br>
 <h5 id="deleteLabel">Click here to delete all data stored on the browser</h5>
 <div id="deleteButton"><button onclick = { deleteAll }>Delete All</button></div>

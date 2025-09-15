@@ -17,6 +17,7 @@
         setTimeout(function() {
             document.getElementById("buttons").classList.remove("init");
             document.getElementById("vogel").classList.remove("init");
+            document.getElementById("navbar").classList.remove("init");
         }, 1000)
     })
 
@@ -39,6 +40,7 @@
         background-color: rgba(207, 156, 164, 0.679);
         color: white;
         cursor: pointer;
+        transition: background-color 0.5s;
 
         overflow: hidden;
 
@@ -82,6 +84,7 @@
         }
     }
     #navbar:hover {
+        background-color: rgba(207, 156, 164, 0.911);
         #vogel {
             margin-top: 80px;
         }
@@ -90,12 +93,15 @@
             top: 20%;
         }
     }
+    #navbar.init {
+        background-color: rgba(207, 156, 164, 0.911);
+    }
     #spacing {
         height: 70px;
     }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_circle_down,emergency_heat,guardian,home,lock_person,mode_heat" />
-<div id="navbar">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_circle_down,emergency_heat,guardian,home,lock_person,mode_heat,moon_stars,sunny" />
+<div id="navbar" class="init">
     <h1 id="buttons" class="init">
         <button class="material-symbols-outlined" onclick = {nav(1)}>home</button>
         <button class="material-symbols-outlined" onclick = {nav(2)}>guardian</button>

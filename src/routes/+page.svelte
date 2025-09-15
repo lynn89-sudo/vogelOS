@@ -25,10 +25,13 @@
 
             if (clock.getHours() < 7) {
                 greeting2 = "Good morning";
+                document.getElementById("streakIcon").innerText = "sunny"
             }
             else {
                 greeting2 = "Good evening";
-                document.getElementById("streakIcon").innerText = "emergency_heat"
+                if (localStorage.getItem("streakSetDate") == "") {
+                    document.getElementById("streakIcon").innerText = "emergency_heat"
+                }
 
                 if (clock.getHours() > 21) {
                     greeting2 = "You should sleep soon";
@@ -39,9 +42,11 @@
             document.body.style = `background-color: skyblue; color: navy`;
             if (clock.getHours() < 12) {
                 greeting2 = "Good morning";
+                document.getElementById("streakIcon").innerText = "sunny"
             }
             else {
                 greeting2 = "Good afternoon";
+                document.getElementById("streakIcon").innerText = "sunny"
             }
         }
     })
@@ -107,6 +112,6 @@
 <div id="sky" style="" alt="Sky Background"></div>
 <h1 id="title" class="init">{ greeting } <span id="nameTitle" style="">{ name }</span>!</h1>
 <h3 id="greeting" style="margin-top: 0">{ greeting2 }</h3>
-<h1><span id="streakIcon" class="material-symbols-outlined" style="font-size: 110px; margin-bottom: 0; padding-bottom: 0;">mode_heat</span></h1>
+<h1><span id="streakIcon" class="material-symbols-outlined" style="font-size: 110px; margin-bottom: 0; padding-bottom: 0;">moon_stars</span></h1>
 <h1 id="streakDisplay" style="margin-top: 0;" class="init">{ streak }</h1>
 <div id="forest"><h1>[forest goes here]</h1></div>

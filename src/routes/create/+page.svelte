@@ -25,6 +25,7 @@
     function processInput() {
         localStorage.setItem("name", document.getElementById("nameInput").value)
         localStorage.setItem("streak", 0);
+        localStorage.setItem("streakLastDate", "");
         localStorage.setItem("accountCreated", true);
         window.location.href = `${base}/`;
     }
@@ -136,7 +137,7 @@
 
     #eefje {
         position: absolute;
-        bottom: 30px;
+        bottom: 50px;
         width: 15%;
         left: 42.5%;
         right: 42.5%;
