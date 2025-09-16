@@ -61,7 +61,18 @@
             streakAdd = "day";
         }
     })
+
+    let loaded = $state(false);
+    onMount(function() {
+        setTimeout(function() {
+            document.getElementById("screenLoading").classList.remove("init")
+        }, 700);
+        setTimeout(function() {
+            loaded = true;
+        }, 1500);
+    })
 </script>
+<!-- svelte-ignore css_unused_selector -->
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -70,6 +81,18 @@
         background-color: rgb(217, 157, 166);
         font-family: Montserrat;
         text-align: center;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        100% {
+            transform: rotate(360deg)
+        }
     }
     #title.init {
         opacity: 0;
@@ -108,10 +131,47 @@
         opacity: 1;
         transition: opacity 1s;
     }
+    
+    #screenLoading {
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
 
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background-color: rgb(84, 45, 84);
+        color: white;
+        z-index: 1000;
+
+        .material-symbols-outlined {
+            font-size: 70px; 
+            animation: spin 1s infinite;
+        }
+
+        h5 {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    }
+    #screenLoading.init {
+        opacity: 1;
+    }
 
 </style>
 <Navbar />
+{#if !loaded}
+    <div id="screenLoading" class="init">
+        <h2 style="margin-top: 100px;">Loading...</h2>
+        <span class="material-symbols-outlined">sync</span>
+        <h5><em>Spreading birdseed on the ground to feed the vogels...</em></h5>
+    </div>
+{/if}
 <br>
 <div id="sky" style="" alt="Sky Background"></div>
 <h1 id="title" class="init">{ greeting } <span id="nameTitle" style="">{ name }</span>!</h1>
