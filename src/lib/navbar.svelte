@@ -21,7 +21,7 @@
             document.getElementById("buttons").classList.remove("init");
             document.getElementById("vogel").classList.remove("init");
             document.getElementById("navbar").classList.remove("init");
-        }, 1000)
+        }, 2000)
     })
 
     onMount(function() {

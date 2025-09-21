@@ -65,7 +65,7 @@ info
 <br><br><br>
 <div class="faq">
     <h3>What's the counter on my home page and account manager?</h3>
-    <h4>VogelOS does not count your progress with a streak system. Instead, the counter signifies the amount of days, since starting, that you've made your personalized goals!</h4>
+    <h4>VogelOS does not count your progress with a streak system. Instead, the counter signifies the amount of days, since starting, that you've met your personalized goals!</h4>
     <span class="material-symbols-outlined" style="font-size: 30px;">mode_heat</span>
 </div>
 <div class="faq">

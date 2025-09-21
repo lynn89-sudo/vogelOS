@@ -12,6 +12,7 @@
     let greeting = greetings[Math.floor((Math.random()*4))]
     let greeting2 = $state("");
     let name = $state("");
+    let day = $state(false);
     //console.log(clock.getHours());
 
     let tutorial = $state(false);
@@ -25,9 +26,9 @@
     let buttonSelect_path = $state("");
     $effect(function() {
         if (buttonSelect == 1) {
-            buttonSelect_title = "Timers";
-            buttonSelect_desc = "Set timers or better manage your time and boost productivity";
-            buttonSelect_path = "help";
+            buttonSelect_title = "Sleep";
+            buttonSelect_desc = "Log your sleep: track sleep hours and set reminders for the morning";
+            buttonSelect_path = "sleep";
         }
         else if (buttonSelect == 2) {
             buttonSelect_title = "Logs";
@@ -35,8 +36,8 @@
             buttonSelect_path = "help";
         }
         else if (buttonSelect == 3) {
-            buttonSelect_title = "Sleep";
-            buttonSelect_desc = "Log your sleep: track sleep hours and set reminders for the morning";
+            buttonSelect_title = "Pomodoro Timer";
+            buttonSelect_desc = "Better manage your time and boost productivity";
             buttonSelect_path = "help";
         }
     });
@@ -47,31 +48,26 @@
         if (clock.getHours() < 7 || clock.getHours() > 18) {
             document.body.style = `background-color: black; color: white;`;
             document.getElementById("nameTitle").style = "color: pink";
-
             if (clock.getHours() < 7) {
-                greeting2 = "Good morning";
-                document.getElementById("streakIcon").innerText = "sunny"
+                greeting2 = "You should sleep";
             }
             else {
                 greeting2 = "Good evening";
+            }
 
-                if (clock.getHours() > 21) {
-                    greeting2 = "You should sleep soon";
-                }
+            if (clock.getHours() > 21) {
+                greeting2 = "You should sleep soon";
             }
         }
         else {
             document.body.style = `background-color: skyblue; color: navy`;
-            if (clock.getHours() < 5) {
-                greeting2 = "You should sleep soon";
-            }
-            else if (clock.getHours() < 12) {
+            day = true;
+            document.getElementById("streakIcon").innerText = "sunny"
+            if (clock.getHours() < 12) {
                 greeting2 = "Good morning";
-                document.getElementById("streakIcon").innerText = "sunny"
             }
             else {
                 greeting2 = "Good afternoon";
-                document.getElementById("streakIcon").innerText = "sunny"
             }
         }
     })
@@ -202,7 +198,7 @@
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: rgba(55, 55, 99, 0.93);
+        background-color: rgba(55, 55, 99, 0.971);
         color: white;
         h1, h3 {
             margin-left: 20px;
@@ -227,14 +223,21 @@
             cursor: pointer;
             padding: 7px;
             border-radius: 360px;
-            transition: font-size 0.2s ease-in-out, background-color 1s;
+            transition: font-size 0.2s ease-in-out, background-color 0.5s;
         }
         button.on {
             background-color: rgb(181, 112, 167);
         }
     }
+    #buttons.day {
+        button {
+            background-color: rgb(36, 13, 101);
+        }
+        button:hover {
+            background-color: rgb(112, 121, 181);
+        }
+    }
     #buttonDesc {
-        width: 70%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0;
@@ -242,19 +245,17 @@
         visibility: collapse;
         opacity: 0;
         transition: visibility 1s, opacity 1.4s;
-
-        td {
-            margin: 0 !important;
-            max-width: 100px;
-        }
         button {
-            background-color: rgb(107, 97, 105);
+            background-color: rgb(110, 101, 108);
             color: white;
             border: none;
             cursor: pointer;
             padding: 7px;
+            vertical-align: -3px;
+            margin-left: 5px;
             border-radius: 360px;
-            transition: font-size 0.2s ease-in-out, background-color 1s;
+            transition: font-size 0.2s ease-in-out, background-color 0.5s;
+            display: inline-block;
         }
         button:hover {
             background-color: rgb(181, 112, 167);
@@ -263,6 +264,14 @@
     #buttonDesc.on {
         visibility: visible;
         opacity: 1;
+    }
+    #buttonDesc.day {
+        button {
+            background-color: rgb(36, 13, 101);
+        }
+        button:hover {
+            background-color: rgb(112, 121, 181);
+        }
     }
 
 </style>
@@ -280,6 +289,8 @@
         <br><br>
         <h1>Welcome to VogelOS</h1>
         <h3><em>Track your personal accomplishments, reinforce good habits, and watch your virtual forest grow</em></h3>
+        <br>
+        <h5>Note: This website is in development and not all features are complete</h5>
     </div>
 {/if}
 <br>
@@ -288,22 +299,13 @@
 <h3 id="greeting" style="margin-top: 0">{ greeting2 }</h3>
 <h1><span id="streakIcon" class="material-symbols-outlined" style="font-size: 80px; margin-bottom: 0; padding-bottom: 0;">moon_stars</span></h1>
 <h2 id="streakDisplay" style="margin-top: 0;" class="init">{ streak } { streakAdd }</h2>
-<h1 id="buttons">
-    <button class="material-symbols-outlined" class:on = {buttonSelect == 1} title="Timers" onclick = {function() {buttonSelect = 1;}}>timer</button>
-    <button class="material-symbols-outlined" class:on = {buttonSelect == 2} title="Add Log" onclick = {function() {buttonSelect = 2;}}>auto_stories</button>
-    <button class="material-symbols-outlined" class:on = {buttonSelect == 3} title="Sleep Tracker" onclick = {function() {buttonSelect = 3;}}>hotel</button>
+<h1 id="buttons" class:day = {day}>
+    <button class="material-symbols-outlined" class:on = {buttonSelect == 1} onclick = {function() {buttonSelect = 1;}}>hotel</button>
+    <button class="material-symbols-outlined" class:on = {buttonSelect == 2} onclick = {function() {buttonSelect = 2;}}>auto_stories</button>
+    <button class="material-symbols-outlined" class:on = {buttonSelect == 3} onclick = {function() {buttonSelect = 3;}}>timer</button>
 </h1>
-<table id="buttonDesc" class:on = { buttonSelect != 0 }>
-    <tbody>
-        <tr>
-            <td style="margin-right: 10px;">
-                <h3>{buttonSelect_title}</h3>
-                <h5><em>{buttonSelect_desc}</em></h5>
-            </td>
-            <td style="margin-left: 10px;">
-                <button class="material-symbols-outlined" onclick = {function() {window.location.href = `${base}/${buttonSelect_path}`}}>arrow_circle_right</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div id="buttonDesc" class:on = { buttonSelect != 0 } class:day = {day}>
+    <h3>{buttonSelect_title} <button class="material-symbols-outlined" onclick = {function() {window.location.href = `${base}/${buttonSelect_path}`}}>arrow_circle_right</button></h3>
+    <h5><em>{buttonSelect_desc}</em></h5>
+</div>
 <div id="forest"><h1>[forest goes here - in dev]</h1></div>
