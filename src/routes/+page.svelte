@@ -14,8 +14,32 @@
     let name = $state("");
     //console.log(clock.getHours());
 
+    let tutorial = $state(false);
+
     let streak = $state(0);
     let streakAdd = $state("days");
+
+    let buttonSelect = $state(0);
+    let buttonSelect_title = $state("");
+    let buttonSelect_desc = $state("");
+    let buttonSelect_path = $state("");
+    $effect(function() {
+        if (buttonSelect == 1) {
+            buttonSelect_title = "Timers";
+            buttonSelect_desc = "Set timers or better manage your time and boost productivity";
+            buttonSelect_path = "help";
+        }
+        else if (buttonSelect == 2) {
+            buttonSelect_title = "Logs";
+            buttonSelect_desc = "Log for different activities: exercise, test grades, volunteering, and more";
+            buttonSelect_path = "help";
+        }
+        else if (buttonSelect == 3) {
+            buttonSelect_title = "Sleep";
+            buttonSelect_desc = "Log your sleep: track sleep hours and set reminders for the morning";
+            buttonSelect_path = "help";
+        }
+    });
 
     onMount(function() {
         let clock = new Date();
@@ -38,7 +62,10 @@
         }
         else {
             document.body.style = `background-color: skyblue; color: navy`;
-            if (clock.getHours() < 12) {
+            if (clock.getHours() < 5) {
+                greeting2 = "You should sleep soon";
+            }
+            else if (clock.getHours() < 12) {
                 greeting2 = "Good morning";
                 document.getElementById("streakIcon").innerText = "sunny"
             }
@@ -71,8 +98,13 @@
             loaded = true;
         }, 1500);
     })
+
+    onMount(function() {
+        if (localStorage.getItem("origin") == localStorage.getItem("pinged")) {
+            setTimeout(function() {tutorial = true;}, 3000);
+        }
+    })
 </script>
-<!-- svelte-ignore css_unused_selector -->
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -163,6 +195,76 @@
         opacity: 1;
     }
 
+    #tutorial {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(55, 55, 99, 0.93);
+        color: white;
+        h1, h3 {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        button {
+            border-radius: 360px;
+            border: none;
+            cursor: pointer;
+            span {
+                vertical-align: -5px;
+            }
+        }
+    }
+
+    #buttons {
+        button {
+            background-color: rgb(107, 97, 105);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 7px;
+            border-radius: 360px;
+            transition: font-size 0.2s ease-in-out, background-color 1s;
+        }
+        button.on {
+            background-color: rgb(181, 112, 167);
+        }
+    }
+    #buttonDesc {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+
+        visibility: collapse;
+        opacity: 0;
+        transition: visibility 1s, opacity 1.4s;
+
+        td {
+            margin: 0 !important;
+            max-width: 100px;
+        }
+        button {
+            background-color: rgb(107, 97, 105);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 7px;
+            border-radius: 360px;
+            transition: font-size 0.2s ease-in-out, background-color 1s;
+        }
+        button:hover {
+            background-color: rgb(181, 112, 167);
+        }
+    }
+    #buttonDesc.on {
+        visibility: visible;
+        opacity: 1;
+    }
+
 </style>
 <Navbar />
 {#if !loaded}
@@ -172,14 +274,36 @@
         <h5><em>Spreading birdseed on the ground to feed the vogels...</em></h5>
     </div>
 {/if}
+{#if tutorial}
+    <div id="tutorial">
+        <button style="position: absolute; top: 20px; right: 20px" onclick = {function() {tutorial = false; let montre = new Date(); localStorage.setItem("pinged", montre.getTime()/60000);}}><span class="material-symbols-outlined">cancel</span></button>
+        <br><br>
+        <h1>Welcome to VogelOS</h1>
+        <h3><em>Track your personal accomplishments, reinforce good habits, and watch your virtual forest grow</em></h3>
+    </div>
+{/if}
 <br>
 <div id="sky" style="" alt="Sky Background"></div>
 <h1 id="title" class="init">{ greeting } <span id="nameTitle" style="">{ name }</span>!</h1>
 <h3 id="greeting" style="margin-top: 0">{ greeting2 }</h3>
-<h1><span id="streakIcon" class="material-symbols-outlined" style="font-size: 110px; margin-bottom: 0; padding-bottom: 0;">moon_stars</span></h1>
-<h1 id="streakDisplay" style="margin-top: 0;" class="init">{ streak } { streakAdd }</h1>
-<div id="tasks">
-    <h3>Next Task</h3>
-    <h5><em>Nothing for now</em></h5>
-</div>
-<div id="forest"><h1>[forest goes here]</h1></div>
+<h1><span id="streakIcon" class="material-symbols-outlined" style="font-size: 80px; margin-bottom: 0; padding-bottom: 0;">moon_stars</span></h1>
+<h2 id="streakDisplay" style="margin-top: 0;" class="init">{ streak } { streakAdd }</h2>
+<h1 id="buttons">
+    <button class="material-symbols-outlined" class:on = {buttonSelect == 1} title="Timers" onclick = {function() {buttonSelect = 1;}}>timer</button>
+    <button class="material-symbols-outlined" class:on = {buttonSelect == 2} title="Add Log" onclick = {function() {buttonSelect = 2;}}>auto_stories</button>
+    <button class="material-symbols-outlined" class:on = {buttonSelect == 3} title="Sleep Tracker" onclick = {function() {buttonSelect = 3;}}>hotel</button>
+</h1>
+<table id="buttonDesc" class:on = { buttonSelect != 0 }>
+    <tbody>
+        <tr>
+            <td style="margin-right: 10px;">
+                <h3>{buttonSelect_title}</h3>
+                <h5><em>{buttonSelect_desc}</em></h5>
+            </td>
+            <td style="margin-left: 10px;">
+                <button class="material-symbols-outlined" onclick = {function() {window.location.href = `${base}/${buttonSelect_path}`}}>arrow_circle_right</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="forest"><h1>[forest goes here - in dev]</h1></div>

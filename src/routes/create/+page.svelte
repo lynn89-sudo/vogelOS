@@ -13,7 +13,6 @@
     });
 
     onMount(function() {
-        localStorage.setItem("accountCreated", false);
         setTimeout(function() {
             document.getElementById("content").classList.remove("invisible");
         }, 2000);
@@ -23,10 +22,11 @@
     });
 
     function processInput() {
+        let clock = new Date();
         localStorage.setItem("name", document.getElementById("nameInput").value)
         localStorage.setItem("streak", 0);
-        localStorage.setItem("streakLastDate", "");
-        localStorage.setItem("accountCreated", true);
+        localStorage.setItem("origin", clock.getTime()/60000); // time since Epoch
+        localStorage.setItem("pinged", clock.getTime()/60000);
         window.location.href = `${base}/`;
     }
 </script>
