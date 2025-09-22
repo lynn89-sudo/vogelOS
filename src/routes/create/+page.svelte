@@ -13,6 +13,15 @@
     });
 
     onMount(function() {
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            localStorage.removeItem(key);
+
+            i--;
+        }
+    })
+
+    onMount(function() {
         setTimeout(function() {
             document.getElementById("content").classList.remove("invisible");
         }, 2000);
@@ -25,8 +34,9 @@
         let clock = new Date();
         localStorage.setItem("name", document.getElementById("nameInput").value)
         localStorage.setItem("streak", 0);
-        localStorage.setItem("origin", clock.getTime()/60000); // time since Epoch
-        localStorage.setItem("pinged", clock.getTime()/60000);
+        localStorage.setItem("origin", clock.getTime()); // time since Epoch
+        localStorage.setItem("pinged", clock.getTime());
+        localStorage.setItem("buildVersion", "Week 3");
         window.location.href = `${base}/`;
     }
 </script>

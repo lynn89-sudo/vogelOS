@@ -25,7 +25,7 @@
     })
 
     onMount(function() {
-        if (localStorage.getItem("name") == null) {
+        if (localStorage.getItem("name") == null || localStorage.getItem("buildVersion") != "Week 3") {
             window.location.href = `${base}/create`;
         }
         else {

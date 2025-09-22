@@ -33,12 +33,12 @@
         else if (buttonSelect == 2) {
             buttonSelect_title = "Logs";
             buttonSelect_desc = "Log for different activities: exercise, test grades, volunteering, and more";
-            buttonSelect_path = "help";
+            buttonSelect_path = "construction";
         }
         else if (buttonSelect == 3) {
             buttonSelect_title = "Pomodoro Timer";
             buttonSelect_desc = "Better manage your time and boost productivity";
-            buttonSelect_path = "help";
+            buttonSelect_path = "construction";
         }
     });
 
@@ -206,7 +206,11 @@
         }
 
         button {
-            border-radius: 360px;
+
+            font-family: Montserrat;
+            padding: 10px;
+            border-radius: 20px;
+            font-weight: 800;
             border: none;
             cursor: pointer;
             span {
@@ -233,7 +237,7 @@
         button {
             background-color: rgb(36, 13, 101);
         }
-        button:hover {
+        button.on {
             background-color: rgb(112, 121, 181);
         }
     }
@@ -285,7 +289,7 @@
 {/if}
 {#if tutorial}
     <div id="tutorial">
-        <button style="position: absolute; top: 20px; right: 20px" onclick = {function() {tutorial = false; let montre = new Date(); localStorage.setItem("pinged", montre.getTime()/60000);}}><span class="material-symbols-outlined">cancel</span></button>
+        <button style="position: absolute; top: 20px; right: 20px" onclick = {function() {tutorial = false; let montre = new Date(); localStorage.setItem("pinged", montre.getTime());}}><span class="material-symbols-outlined">cancel</span></button>
         <br><br>
         <h1>Welcome to VogelOS</h1>
         <h3><em>Track your personal accomplishments, reinforce good habits, and watch your virtual forest grow</em></h3>
@@ -294,7 +298,7 @@
     </div>
 {/if}
 <br>
-<div id="sky" style="" alt="Sky Background"></div>
+<div id="sky" style=""></div>
 <h1 id="title" class="init">{ greeting } <span id="nameTitle" style="">{ name }</span>!</h1>
 <h3 id="greeting" style="margin-top: 0">{ greeting2 }</h3>
 <h1><span id="streakIcon" class="material-symbols-outlined" style="font-size: 80px; margin-bottom: 0; padding-bottom: 0;">moon_stars</span></h1>
